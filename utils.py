@@ -225,9 +225,9 @@ class LogLikelihoodSwitch(Callback):
         current = logs[self.monitor].squeeze()
         should_switch, reason = self._evaluate_switching_criteria(current)
         should_switch = trainer.strategy.reduce_boolean_decision(should_switch, all=False)
-        if should_switch:
+        if should_switch and self.switched_epoch == 0:
             self.switched_epoch = trainer.current_epoch
-            print(f"Switching training to train on mu and sigma (epoch {self.switched_epoch}")
+            print(f"Switching training to train on mu and sigma (epoch {self.switched_epoch})")
             pl_module.freeze_std = False
     
     def _evaluate_switching_criteria(self, current: torch.Tensor) -> Tuple[bool, Optional[str]]:

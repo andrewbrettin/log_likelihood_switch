@@ -4,7 +4,7 @@ configs:
   epochs: 1000
   l2: 0.0
   loss_func: GaussianNLLLoss
-  lr: 0.001
+  lr: 0.005
   network_architecture:
   - 10
   - 10
