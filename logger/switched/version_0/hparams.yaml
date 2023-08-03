@@ -1,15 +1,15 @@
 configs:
   batch_size: 32
   early_stopping: true
-  epochs: 500
+  epochs: 1000
   l2: 0.0
   loss_func: GaussianNLLLoss
-  lr: 0.005
+  lr: 0.001
   network_architecture:
   - 10
   - 10
   optimizer: Adam
-  patience: 20
+  patience: 50
   seed: 0
   std_switch: true
 n_inputs: 1
